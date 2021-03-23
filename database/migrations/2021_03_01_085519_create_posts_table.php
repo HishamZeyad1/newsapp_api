@@ -24,6 +24,10 @@ class CreatePostsTable extends Migration
             $table->integer( 'votes_up' )->nullable();
             $table->integer( 'votes_down' )->nullable();
 
+            $table->text( 'voters_up' )->nullable();
+            $table->text( 'voters_down' )->nullable();
+            // $table->text( 'voters' )->nullable();
+
             // Relationships
             $table->integer( 'user_id' );
             $table->integer( 'category_id' );

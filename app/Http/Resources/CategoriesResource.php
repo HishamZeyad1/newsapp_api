@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\Resources\Json\Resource;
 
-class AuthorPostsResource extends ResourceCollection
+class CategoriesResource extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.

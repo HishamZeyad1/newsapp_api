@@ -11,6 +11,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserRescouce;
 
+
+use App\Http\Resources\TokenResource;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+
 class UserController extends Controller
 {
     /**
@@ -34,7 +40,20 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'  => 'required',
+            'email' => 'required',
+            'password'  => 'required'
+        ]);
+        $user = new User();
+        // $user->name = $request->get( 'name' );
+        // $user->email = $request->get( 'email' );
+        // $user->password = Hash::make( $request->get( 'password' ) );
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make( $request->password );
+        $user->save();
+        return new UserResource( $user );
     }
 
     /**
@@ -72,6 +91,21 @@ class UserController extends Controller
         return new AuthorCommentsResource( $comments );
     }
 
+    public function getToken( Request $request ){
+        $request->validate( [
+            'email' => 'required',
+            'password'  => 'required'
+        ] );
+        $credentials = $request->only('email' , 'password' );
+        if( Auth::attempt( $credentials ) ){
+            $user = User::where( 'email' , $request->get( 'email' ) )->first();
+            return new TokenResource( [ 'token' => $user->api_token] );
+
+            // new TokenResource( [ 'token' => $user->api_token] );
+        }
+        return 'not found';
+    }
+
     // Public function show ($id){
     //     // $user=User::findOrfail($id);
     //     $data = User::find($id);
@@ -98,7 +132,31 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $user = User::whereId($id)->first();
+        if( $request->has('name') ){
+            $user->name = $request->get( 'name' );
+        }
+        // if( $request->has( 'avatar' ) ){
+        //     $user->avatar = $request->get( 'avatar' );
+        // }
+
+        if( $request->hasFile('avatar') ){
+            $featuredImage = $request->file( 'avatar' );
+            $filename = time().$featuredImage->getClientOriginalName();
+            Storage::disk('images')->putFileAs(
+                $filename,
+                $featuredImage,
+                $filename
+            );
+            $user->avatar = url('/') . '/images/' .$filename;
+        }
+
+
+        $user->save();
+        return new UserResource( $user );
+        // return $id;
+
     }
 
     /**
