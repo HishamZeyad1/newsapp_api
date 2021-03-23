@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "797df551c52800c16e861aa778f4e0db",
+    "content-hash": "3c43de79f7cf836cd16d1124459e7332",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -893,6 +893,54 @@
             "time": "2020-09-30T07:37:11+00:00"
         },
         {
+            "name": "laravel-frontend-presets/now-ui-dashboard",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-frontend-presets/now-ui-dashboard.git",
+                "reference": "41b7447604078ebe3a49fa745a5adf4e908ab077"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-frontend-presets/now-ui-dashboard/zipball/41b7447604078ebe3a49fa745a5adf4e908ab077",
+                "reference": "41b7447604078ebe3a49fa745a5adf4e908ab077",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^8.0",
+                "laravel/legacy-factories": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelFrontendPresets\\NowUiPreset\\NowUiPresetServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelFrontendPresets\\NowUiPreset\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Laravel 5.x Front-end preset for now ui dashboard",
+            "homepage": "https://github.com/creativetimofficial/now-ui-dashboard-laravel",
+            "keywords": [
+                "Now UI",
+                "laravel",
+                "preset"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel-frontend-presets/now-ui-dashboard/issues",
+                "source": "https://github.com/laravel-frontend-presets/now-ui-dashboard/tree/v1.0.4"
+            },
+            "time": "2020-09-21T11:42:07+00:00"
+        },
+        {
             "name": "laravel/framework",
             "version": "v8.29.0",
             "source": {
@@ -1059,6 +1107,62 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2021-02-23T14:27:41+00:00"
+        },
+        {
+            "name": "laravel/legacy-factories",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/legacy-factories.git",
+                "reference": "5e3fe2fd5fda64e20ea5c74c831a7346294e902a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/legacy-factories/zipball/5e3fe2fd5fda64e20ea5c74c831a7346294e902a",
+                "reference": "5e3fe2fd5fda64e20ea5c74c831a7346294e902a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/macroable": "^8.0",
+                "php": "^7.3|^8.0",
+                "symfony/finder": "^3.4|^4.0|^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Illuminate\\Database\\Eloquent\\LegacyFactoryServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "helpers.php"
+                ],
+                "psr-4": {
+                    "Illuminate\\Database\\Eloquent\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "The legacy version of the Laravel Eloquent factories.",
+            "homepage": "http://laravel.com",
+            "support": {
+                "issues": "https://github.com/laravel/framework/issues",
+                "source": "https://github.com/laravel/framework"
+            },
+            "time": "2020-10-27T14:25:32+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -4924,6 +5028,71 @@
     ],
     "packages-dev": [
         {
+            "name": "beyondcode/laravel-dump-server",
+            "version": "1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/beyondcode/laravel-dump-server.git",
+                "reference": "e27c7b942ab62f6ac7168359393d328ec5215b89"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/beyondcode/laravel-dump-server/zipball/e27c7b942ab62f6ac7168359393d328ec5215b89",
+                "reference": "e27c7b942ab62f6ac7168359393d328ec5215b89",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "5.6.*|5.7.*|5.8.*|^6.0|^7.0|^8.0",
+                "illuminate/http": "5.6.*|5.7.*|5.8.*|^6.0|^7.0|^8.0",
+                "illuminate/support": "5.6.*|5.7.*|5.8.*|^6.0|^7.0|^8.0",
+                "php": ">=7.2.5",
+                "symfony/var-dumper": "^5.0"
+            },
+            "require-dev": {
+                "larapack/dd": "^1.0",
+                "phpunit/phpunit": "^7.0|^9.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BeyondCode\\DumpServer\\DumpServerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BeyondCode\\DumpServer\\": "src"
+                },
+                "files": [
+                    "helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marcel Pociot",
+                    "email": "marcel@beyondco.de",
+                    "homepage": "https://beyondco.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Symfony Var-Dump Server for Laravel",
+            "homepage": "https://github.com/beyondcode/laravel-dump-server",
+            "keywords": [
+                "beyondcode",
+                "laravel-dump-server"
+            ],
+            "support": {
+                "issues": "https://github.com/beyondcode/laravel-dump-server/issues",
+                "source": "https://github.com/beyondcode/laravel-dump-server/tree/1.7.0"
+            },
+            "time": "2020-12-15T10:57:43+00:00"
+        },
+        {
             "name": "doctrine/instantiator",
             "version": "1.4.0",
             "source": {
@@ -7418,6 +7587,7 @@
     "prefer-lowest": false,
     "platform": {
         "php": "^7.3|^8.0",
+        "ext-json": "*",
         "ext-openssl": "*"
     },
     "platform-dev": [],
