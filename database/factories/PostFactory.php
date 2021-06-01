@@ -28,7 +28,7 @@ class PostFactory extends Factory
             //
             // 'title' => $this->faker->name,
 
-            'title' =>  $this->faker->title,
+            'title' =>  $this->faker->name,
             'content'   =>  $this->faker->text( 400 ),
             'date_written'  => now(),
             'featured_image'    => $this->faker->imageUrl(),
