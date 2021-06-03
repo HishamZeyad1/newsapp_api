@@ -35,7 +35,7 @@ class PostFactory extends Factory
             'votes_up'  =>  $this->faker->numberBetween( 1 , 100 ),
             'votes_down'    =>  $this->faker->numberBetween( 1 , 100 ),
             'user_id'   =>  $this->faker->numberBetween( 1 , 50 ),
-            'category_id'   =>  $this->faker->numberBetween( 1 , 15 ),
+            'category_id'   =>  $this->faker->numberBetween( 1 , 7 ),
         ];
     }
 }

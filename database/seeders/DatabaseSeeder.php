@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         // DB::statement('SET FOREIGN_KEY_CHECKS=1');
 
         $users = User::factory()->count(100)->create();
-        $category=Category::factory()->count(5)->create();
+        $category=Category::factory()->count(7)->create();
         $post=Post::factory()->count(100)->create();
         $comment=Comment::factory()->count(100)->create();
 
