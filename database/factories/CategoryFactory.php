@@ -22,7 +22,6 @@ public function definition()
 return [
 // 'title' => $faker->word,
 'title' => $this->faker->name,
-
 ];
 
 }

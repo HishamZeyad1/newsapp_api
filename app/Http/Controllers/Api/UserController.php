@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
+use Illuminate\Support\Str;
+
 class UserController extends Controller
 {
     /**
@@ -46,15 +48,29 @@ class UserController extends Controller
             'password'  => 'required'
         ]);
         $user = new User();
+
         // $user->name = $request->get( 'name' );
         // $user->email = $request->get( 'email' );
         // $user->password = Hash::make( $request->get( 'password' ) );
+            
+        
+
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = Hash::make( $request->password );
+       $user->password = Hash::make( $request->password );
+        // $user->attributes['password'] = \Hash::make($password);
+        // // to generate a new token for the new user
+        $user->api_token = Str::random(12);//str_random(60);
+
         $user->save();
-        return new UserResource( $user );
+        
+
+
+
+       return new UserResource( $user );
     }
+
+ 
 
     /**
      * Display the specified resource.
@@ -99,9 +115,10 @@ class UserController extends Controller
         $credentials = $request->only('email' , 'password' );
         if( Auth::attempt( $credentials ) ){
             $user = User::where( 'email' , $request->get( 'email' ) )->first();
-            return new TokenResource( [ 'token' => $user->api_token] );
-
+           return new TokenResource( [ 'token' => $user->api_token] );
             // new TokenResource( [ 'token' => $user->api_token] );
+            // return ['token' => $token->plainTextToken];
+
         }
         return 'not found';
     }
