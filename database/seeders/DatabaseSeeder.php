@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
 
         // DB::statement('SET FOREIGN_KEY_CHECKS=0');
         // DB::table('users')->truncate();
-        // $this->call([ UsersTableSeeder::class]);
+        // $this->call([ UsersTableSeeder::class]);//$this->call(UsersTableSeeder::class);
+
         // DB::statement('SET FOREIGN_KEY_CHECKS=1');
 
         $users = User::factory()->count(100)->create();
