@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+// use Illuminate\Routing\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+/*create new Route */
+Route::get('name',function(){
+	return "Hisham Zeyad";
+});
+// Route::view('zeyad','index');
+Route::get('zeyad','App\Http\Controllers\HishamController@index');
+Route::get('user/{id}','App\Http\Controllers\HishamController@show');
 
 Auth::routes();
 
