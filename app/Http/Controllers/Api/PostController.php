@@ -29,6 +29,7 @@ class PostController extends Controller
     public function index()
     {
         //
+
         // $posts = Post::paginate( env('POSTS_PER_PAGE') );
         $posts = Post::with(['comments' , 'author' , 'category'])->paginate( env('POSTS_PER_PAGE') );
 

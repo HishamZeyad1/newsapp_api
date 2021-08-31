@@ -76,4 +76,29 @@ class CategoryController extends Controller
         return new PostsResource( $posts );
 
     }
+    /* */
+    public function latestPosts( $id ){
+        $category = Category::whereId($id)->first();
+
+        $posts = $category->posts()->orderBy('date_written', 'desc')->paginate( env('POSTS_PER_PAGE') );;
+
+        return new PostsResource( $posts );
+    }
+    public function oldestPosts( $id ){
+        $category = Category::whereId($id)->first();
+
+        $posts = $category->posts()->orderBy('date_written', 'asc')->paginate( env('POSTS_PER_PAGE') );;
+        return new PostsResource( $posts );
+    }
+    public function voteUpPosts( $id ){
+        $category = Category::whereId($id)->first();
+        $posts = $category->posts()->orderBy('votes_up', 'desc')->paginate( env('POSTS_PER_PAGE') );;
+        return new PostsResource( $posts );
+    }
+    public function voteDownPosts( $id ){
+        $category = Category::whereId($id)->first();
+        $posts = $category->posts()->orderBy('votes_down', 'desc')->paginate( env('POSTS_PER_PAGE') );;
+        return new PostsResource( $posts );
+    }
+
 }
