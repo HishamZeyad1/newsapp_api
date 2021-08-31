@@ -76,6 +76,12 @@ Route::get('comments/author/{id}', 'App\Http\Controllers\Api\UserController@comm
 
 Route::get( 'categories' , 'App\Http\Controllers\Api\CategoryController@index' );
 Route::get( 'posts/categories/{id}' , 'App\Http\Controllers\Api\CategoryController@posts' );
+Route::get( 'latestPosts/categories/{id}' , 'App\Http\Controllers\Api\CategoryController@latestPosts' );
+Route::get( 'oldestPosts/categories/{id}' , 'App\Http\Controllers\Api\CategoryController@oldestPosts' );
+Route::get( 'voteUpPosts/categories/{id}' , 'App\Http\Controllers\Api\CategoryController@voteUpPosts' );
+Route::get( 'voteDownPosts/categories/{id}' , 'App\Http\Controllers\Api\CategoryController@voteDownPosts' );
+
+
 Route::get( 'posts' , 'App\Http\Controllers\Api\PostController@index' );
 Route::get( 'posts/{id}' , 'App\Http\Controllers\Api\PostController@show' );
 Route::get( 'comments/posts/{id}' , 'App\Http\Controllers\Api\PostController@comments');
